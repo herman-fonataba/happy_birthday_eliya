@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday, Eliya 🎂💕</title>
+<title>Happy Birthday, Deliya 🎂💕</title>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,500;1,400&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -166,7 +166,7 @@ body{font-family:'Poppins',sans-serif;min-height:100vh;overflow-x:hidden;backgro
 @keyframes photoIn{from{opacity:0;transform:rotate(-5deg) scale(.8) translateY(40px)}to{opacity:1;transform:rotate(-2deg) scale(1) translateY(0)}}
 .photo-frame img{width:100%;height:auto;border-radius:2px;display:block;filter:contrast(1.05) saturate(1.1)}
 .photo-caption{margin-top:30px;text-align:center;color:#ffdde1;font-family:'Playfair Display',serif;
-  font-style:italic;font-size:1.2rem;animation:fadeIn 1.5s ease 1s both;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+  font-style:italic;font-size:1.2rem;animation:fadeIn 1.5s ease 1s both;text-shadow:0 2px 8px rgba(0,0,0,.5);line-height:1.6}
 .photo-heart{font-size:3rem;margin-top:15px;animation:heartbeat 1.5s infinite;filter:drop-shadow(0 0 10px rgba(255,100,150,.6))}
 @keyframes heartbeat{0%,100%{transform:scale(1)}15%{transform:scale(1.15)}30%{transform:scale(1)}45%{transform:scale(1.1)}}
 
@@ -190,7 +190,6 @@ body{font-family:'Poppins',sans-serif;min-height:100vh;overflow-x:hidden;backgro
   .l1{width:140px}.l2{width:185px}.l3{width:230px}.plate{width:265px}.cake-shadow{width:240px}
   .candles{gap:20px}.banner{margin-top:82px}.card{padding:32px 20px}
 }
-</size>
 </style>
 </head>
 <body>
@@ -200,10 +199,10 @@ body{font-family:'Poppins',sans-serif;min-height:100vh;overflow-x:hidden;backgro
 
 <!-- 1. AMPLOP -->
 <section class="screen active" id="screen-envelope">
-  <div class="env-title">Ada sesuatu untukmu, Eliya… 💌</div>
+  <div class="env-title">Ada sesuatu untukmu, Deliya… 💌</div>
   <div class="envelope" id="envelope">
     <div class="env-back"></div>
-    <div class="env-letter">untuk Eliya ♥</div>
+    <div class="env-letter">untuk Deliya ♥</div>
     <div class="env-front"></div>
     <div class="env-bottom"></div>
     <div class="env-flap"></div>
@@ -233,14 +232,14 @@ body{font-family:'Poppins',sans-serif;min-height:100vh;overflow-x:hidden;backgro
     </div>
   </div>
   <button class="btn" id="blowBtn">🌬️ Tiup Lilinnya</button>
-  <div class="wish" id="wish">Make a wish, Eliya… ✨</div>
+  <div class="wish" id="wish">Make a wish, Deliya… ✨</div>
 </section>
 
 <!-- 3. SURAT -->
 <section class="screen" id="screen-letter">
   <div class="card">
     <h2>Selamat Ulang Tahun</h2>
-    <div style="font-family:'Playfair Display',serif;font-style:italic;color:#8b3a4a;font-size:1.3rem">Eliya 💕</div>
+    <div style="font-family:'Playfair Display',serif;font-style:italic;color:#8b3a4a;font-size:1.3rem">Deliya 💕</div>
     <div class="divider"></div>
     <div class="msg" id="typewriter"></div>
     <div class="sign">
@@ -254,17 +253,17 @@ body{font-family:'Poppins',sans-serif;min-height:100vh;overflow-x:hidden;backgro
 <!-- 4. KEMBANG API -->
 <section class="screen" id="screen-fireworks">
   <canvas id="fwCanvas"></canvas>
-  <div class="fw-text">Untuk Eliya yang paling spesial... 🎆</div>
+  <div class="fw-text">Untuk Deliya yang paling spesial... 🎆</div>
 </section>
 
 <!-- 5. FOTO -->
 <section class="screen" id="screen-photo">
   <div class="photo-frame">
-    <img src="https://happybirthdayeliya.vercel.app/34.jpeg" alt="Eliya">
+    <img src="https://happybirthdayeliya.vercel.app/34.jpeg" alt="Deliya">
   </div>
   <div class="photo-caption">
-    "Terima kasih sudah menjadi bagian terindah dalam hidupku.<br>
-    Selamat ulang tahun, cintaku."
+    Terima kasih sudah menjadi bagian terindah<br>
+    Selamat Ulang Tahun Deliya
   </div>
   <div class="photo-heart">💖</div>
 </section>
@@ -275,7 +274,7 @@ body{font-family:'Poppins',sans-serif;min-height:100vh;overflow-x:hidden;backgro
 </audio>
 
 <script>
-const NAMA = "Eliya";
+const NAMA = "Deliya";
 
 /* ---------- Hati latar ---------- */
 (function(){
@@ -432,16 +431,15 @@ document.getElementById('blowBtn').addEventListener('click',function(){
 document.getElementById('nextBtn').addEventListener('click',function(){
   show('screen-fireworks');
   startFireworks();
-  // Setelah 4.5 detik, tampilkan foto
   setTimeout(()=>{
     show('screen-photo');
-    confetti(100); // Sedikit confetti saat foto muncul
+    confetti(100);
   }, 4500);
 });
 
-/* ---------- Typewriter ---------- */
+/* ---------- Typewriter (PESAN BARU) ---------- */
 function typewriter(){
-  const text="Hari ini dunia menjadi lebih indah karena kamu ada di dalamnya. Terima kasih sudah lahir, sudah menjadi bagian dari hidupku, dan sudah menjadi alasan di balik senyumku setiap hari. Semoga semua harapan yang kamu tiup bersama lilin tadi benar-benar menjadi nyata. Aku berjanji akan selalu ada di sisimu, menemanimu melewati setiap musim dalam hidupmu. Selamat ulang tahun, Eliya sayang.";
+  const text = "Selamat ulang tahun, Deliya. Makasih sudah selalu ada di balik layar, baik saat senang. Semoga tahun yang menambah 1 tahun usia kamu ini penuh hal baik, rezekinya lancar, dan semua usahamu tercapai. Tetap seru dan tulus ya!";
   const el=document.getElementById('typewriter');
   el.textContent='';let i=0;
   (function type(){
@@ -491,7 +489,7 @@ function startFireworks(){
   const fwInterval=setInterval(()=>{
     createFirework(Math.random()*canvas.width, Math.random()*canvas.height*0.6);
     fwCount++;
-    if(fwCount>8) clearInterval(fwInterval); // Buat 8-9 kembang api
+    if(fwCount>8) clearInterval(fwInterval);
   }, 400);
   
   function animate(){
@@ -502,7 +500,7 @@ function startFireworks(){
       const p=particles[i];
       p.x+=p.vx;
       p.y+=p.vy;
-      p.vy+=0.04; // gravity
+      p.vy+=0.04;
       p.alpha-=p.decay;
       
       ctx.globalAlpha=p.alpha;
@@ -515,7 +513,6 @@ function startFireworks(){
     }
     ctx.globalAlpha=1;
     
-    // Lanjutkan animasi hanya jika masih di layar fireworks
     if(document.getElementById('screen-fireworks').classList.contains('active')){
       requestAnimationFrame(animate);
     }
