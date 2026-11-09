@@ -11,11 +11,39 @@ body{font-family:'Poppins',sans-serif;min-height:100vh;overflow-x:hidden;backgro
 .screen{display:none;min-height:100vh;width:100%;position:relative}
 .screen.active{display:flex}
 
+/* ============ 0. COUNTDOWN ============ */
+#screen-countdown{justify-content:center;align-items:center;flex-direction:column;padding:30px 20px;
+  background:linear-gradient(135deg,#2b1055 0%,#7597de 30%,#ffc9dd 70%,#ffe3ec 100%);
+  background-size:300% 300%;animation:bgShift 14s ease infinite;position:relative;overflow:hidden}
+@keyframes bgShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.cd-title{font-family:'Dancing Script',cursive;font-size:clamp(1.8rem,6vw,2.6rem);color:#fff;
+  text-shadow:0 3px 14px rgba(100,30,70,.5);text-align:center;margin-bottom:8px}
+.cd-sub{font-family:'Playfair Display',serif;font-style:italic;color:#fff;
+  text-shadow:0 2px 8px rgba(100,30,70,.4);font-size:clamp(.9rem,2.5vw,1.1rem);margin-bottom:40px;text-align:center}
+.cd-boxes{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:30px}
+.cd-box{background:rgba(255,255,255,.18);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.35);border-radius:18px;padding:18px 14px;min-width:80px;
+  text-align:center;box-shadow:0 10px 30px rgba(100,30,70,.25);transition:transform .3s}
+.cd-box:hover{transform:translateY(-4px)}
+.cd-num{font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(2rem,7vw,3.2rem);
+  color:#fff;text-shadow:0 2px 10px rgba(233,30,99,.5);line-height:1;
+  transition:transform .3s}
+.cd-num.flip{animation:flipNum .5s ease}
+@keyframes flipNum{0%{transform:scale(1)}50%{transform:scale(1.25);color:#ffd166}100%{transform:scale(1)}}
+.cd-label{font-size:.75rem;color:#fff;text-transform:uppercase;letter-spacing:.15em;margin-top:8px;
+  text-shadow:0 1px 4px rgba(100,30,70,.4)}
+.cd-date{font-family:'Playfair Display',serif;font-style:italic;color:#fff;font-size:1rem;
+  text-shadow:0 2px 8px rgba(100,30,70,.4);margin-top:10px;text-align:center}
+.cd-heart{font-size:2.5rem;margin-top:20px;animation:heartbeat 1.5s infinite;
+  filter:drop-shadow(0 0 12px rgba(255,100,150,.7))}
+@keyframes heartbeat{0%,100%{transform:scale(1)}15%{transform:scale(1.2)}30%{transform:scale(1)}45%{transform:scale(1.15)}}
+.cd-sparkle{position:absolute;font-size:1.5rem;opacity:.6;animation:sparkle 3s ease-in-out infinite}
+@keyframes sparkle{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:.9;transform:scale(1.2)}}
+
 /* ============ 1. AMPLOP ============ */
 #screen-envelope{justify-content:center;align-items:center;flex-direction:column;
   background:linear-gradient(135deg,#ffdde1 0%,#ee9ca7 55%,#ffc3a0 100%);
   background-size:300% 300%;animation:bgShift 14s ease infinite}
-@keyframes bgShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 .env-title{font-family:'Dancing Script',cursive;font-size:2rem;color:#fff;
   text-shadow:0 3px 12px rgba(150,50,70,.4);margin-bottom:28px;text-align:center}
 .envelope{width:320px;height:215px;position:relative;cursor:pointer;
@@ -145,10 +173,7 @@ body{font-family:'Poppins',sans-serif;min-height:100vh;overflow-x:hidden;backgro
 .card h2{font-family:'Dancing Script',cursive;font-size:2.7rem;color:#c2185b;margin-bottom:6px}
 .divider{width:110px;height:2px;margin:20px auto;background:linear-gradient(90deg,transparent,#e91e63,transparent)}
 .msg{font-family:'Playfair Display',serif;font-style:italic;font-size:1.08rem;line-height:2;
-  color:#5d2a35;min-height:190px;margin:22px 6px}
-.sign{margin-top:26px;padding-top:20px;border-top:1px solid #ffc2cc}
-.sign p{font-family:'Playfair Display',serif;font-style:italic;color:#8b3a4a;line-height:1.8}
-.sign .from{font-family:'Dancing Script',cursive;font-size:1.9rem;color:#c2185b;margin-top:12px}
+  color:#5d2a35;min-height:150px;margin:22px 6px}
 
 /* ============ 4. KEMBANG API ============ */
 #screen-fireworks{background:#0f0f1a;justify-content:center;align-items:center;z-index:999}
@@ -168,7 +193,6 @@ body{font-family:'Poppins',sans-serif;min-height:100vh;overflow-x:hidden;backgro
 .photo-caption{margin-top:30px;text-align:center;color:#ffdde1;font-family:'Playfair Display',serif;
   font-style:italic;font-size:1.2rem;animation:fadeIn 1.5s ease 1s both;text-shadow:0 2px 8px rgba(0,0,0,.5);line-height:1.6}
 .photo-heart{font-size:3rem;margin-top:15px;animation:heartbeat 1.5s infinite;filter:drop-shadow(0 0 10px rgba(255,100,150,.6))}
-@keyframes heartbeat{0%,100%{transform:scale(1)}15%{transform:scale(1.15)}30%{transform:scale(1)}45%{transform:scale(1.1)}}
 
 /* Utilitas */
 .hearts{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
@@ -184,6 +208,8 @@ body{font-family:'Poppins',sans-serif;min-height:100vh;overflow-x:hidden;backgro
 @keyframes spin{to{transform:rotate(360deg)}}
 
 @media(max-width:600px){
+  .cd-boxes{gap:10px}
+  .cd-box{min-width:68px;padding:14px 10px}
   .envelope{width:280px;height:190px}
   .env-front::before{border-left-width:140px}.env-front::after{border-right-width:140px}
   .env-bottom{border-left-width:140px;border-right-width:140px}
@@ -197,8 +223,26 @@ body{font-family:'Poppins',sans-serif;min-height:100vh;overflow-x:hidden;backgro
 <div class="hearts" id="hearts"></div>
 <button class="music-btn" id="musicBtn">🎵</button>
 
+<!-- 0. COUNTDOWN -->
+<section class="screen active" id="screen-countdown">
+  <div class="cd-sparkle" style="top:12%;left:8%">✨</div>
+  <div class="cd-sparkle" style="top:20%;right:10%;animation-delay:1s">💫</div>
+  <div class="cd-sparkle" style="bottom:18%;left:15%;animation-delay:2s">✨</div>
+  <div class="cd-sparkle" style="bottom:25%;right:12%;animation-delay:.5s">💫</div>
+  <div class="cd-title">Menuju Hari Spesial Deliya 💖</div>
+  <div class="cd-sub">setiap detik membawa kita lebih dekat…</div>
+  <div class="cd-boxes">
+    <div class="cd-box"><div class="cd-num" id="cdDays">00</div><div class="cd-label">Hari</div></div>
+    <div class="cd-box"><div class="cd-num" id="cdHours">00</div><div class="cd-label">Jam</div></div>
+    <div class="cd-box"><div class="cd-num" id="cdMins">00</div><div class="cd-label">Menit</div></div>
+    <div class="cd-box"><div class="cd-num" id="cdSecs">00</div><div class="cd-label">Detik</div></div>
+  </div>
+  <div class="cd-date">📅 10 November 2026 • 00:00 WIB</div>
+  <div class="cd-heart">💖</div>
+</section>
+
 <!-- 1. AMPLOP -->
-<section class="screen active" id="screen-envelope">
+<section class="screen" id="screen-envelope">
   <div class="env-title">Ada sesuatu untukmu, Deliya… 💌</div>
   <div class="envelope" id="envelope">
     <div class="env-back"></div>
@@ -242,10 +286,6 @@ body{font-family:'Poppins',sans-serif;min-height:100vh;overflow-x:hidden;backgro
     <div style="font-family:'Playfair Display',serif;font-style:italic;color:#8b3a4a;font-size:1.3rem">Deliya 💕</div>
     <div class="divider"></div>
     <div class="msg" id="typewriter"></div>
-    <div class="sign">
-      <p>"Dari semua kisah cinta di dunia, kisah kitalah yang paling aku syukuri."</p>
-      <div class="from">Dengan segenap cinta,<br>[Nama Kamu] 💌</div>
-    </div>
     <button class="btn ghost" id="nextBtn" style="margin-top:26px">Lanjut 💖</button>
   </div>
 </section>
@@ -275,6 +315,62 @@ body{font-family:'Poppins',sans-serif;min-height:100vh;overflow-x:hidden;backgro
 
 <script>
 const NAMA = "Deliya";
+// Target: 10 November 2026, 00:00 WIB (UTC+7)
+const TARGET_TIME = new Date('2026-11-10T00:00:00+07:00').getTime();
+
+/* ---------- COUNTDOWN ---------- */
+const cdDays=document.getElementById('cdDays');
+const cdHours=document.getElementById('cdHours');
+const cdMins=document.getElementById('cdMins');
+const cdSecs=document.getElementById('cdSecs');
+let prevVals={d:'',h:'',m:'',s:''};
+let countdownDone=false;
+
+function flipIfChanged(el,newVal,key){
+  if(prevVals[key]!==newVal){
+    el.textContent=newVal;
+    el.classList.remove('flip');
+    void el.offsetWidth; // reflow
+    el.classList.add('flip');
+    prevVals[key]=newVal;
+  }
+}
+
+function updateCountdown(){
+  const now=Date.now();
+  const diff=TARGET_TIME-now;
+  
+  if(diff<=0){
+    // Waktu sudah tiba
+    if(!countdownDone){
+      countdownDone=true;
+      flipIfChanged(cdDays,'00','d');
+      flipIfChanged(cdHours,'00','h');
+      flipIfChanged(cdMins,'00','m');
+      flipIfChanged(cdSecs,'00','s');
+      setTimeout(()=>{
+        confetti(120);
+        show('screen-envelope');
+        document.getElementById('musicBtn').style.display='block';
+        playMusic();
+      },800);
+    }
+    return;
+  }
+  
+  const d=Math.floor(diff/(1000*60*60*24));
+  const h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+  const m=Math.floor((diff%(1000*60*60))/(1000*60));
+  const s=Math.floor((diff%(1000*60))/1000);
+  
+  flipIfChanged(cdDays,String(d).padStart(2,'0'),'d');
+  flipIfChanged(cdHours,String(h).padStart(2,'0'),'h');
+  flipIfChanged(cdMins,String(m).padStart(2,'0'),'m');
+  flipIfChanged(cdSecs,String(s).padStart(2,'0'),'s');
+}
+
+updateCountdown();
+setInterval(updateCountdown,1000);
 
 /* ---------- Hati latar ---------- */
 (function(){
@@ -404,10 +500,8 @@ function show(id){
 
 document.getElementById('envelope').addEventListener('click',function(){
   this.classList.add('opened');
-  playMusic();
   setTimeout(()=>{
     show('screen-party');
-    document.getElementById('musicBtn').style.display='block';
     startBalloons();
     confetti(110);
   },1250);
@@ -437,7 +531,7 @@ document.getElementById('nextBtn').addEventListener('click',function(){
   }, 4500);
 });
 
-/* ---------- Typewriter (PESAN BARU) ---------- */
+/* ---------- Typewriter ---------- */
 function typewriter(){
   const text = "Selamat ulang tahun, Deliya. Makasih sudah selalu ada di balik layar, baik saat senang. Semoga tahun yang menambah 1 tahun usia kamu ini penuh hal baik, rezekinya lancar, dan semua usahamu tercapai. Tetap seru dan tulus ya!";
   const el=document.getElementById('typewriter');
